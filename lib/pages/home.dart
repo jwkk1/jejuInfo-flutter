@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jejuinfo/widgets/searchList.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -22,38 +23,47 @@ class _HomeState extends State<Home> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Column(
-                  children: [
-                    Text('관광지', style: TextStyle(fontSize: 20)),
-                    Container(
-                      margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
-                      height: 2,
-                      width: 50,
-                      color: Colors.orange,
-                    ),
-                  ],
+                GestureDetector(
+                  onTap: (){},
+                  child: Column(
+                    children: [
+                      Text('관광지', style: TextStyle(fontSize: 20)),
+                      Container(
+                        margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                        height: 2,
+                        width: 50,
+                        color: Colors.orange,
+                      ),
+                    ],
+                  ),
                 ),
-                Column(
-                  children: [
-                    Text('쇼핑', style: TextStyle(fontSize: 20)),
-                    Container(
-                      margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
-                      height: 2,
-                      width: 50,
-                      color: Colors.orange,
-                    ),
-                  ],
+                GestureDetector(
+                  onTap: (){},
+                  child: Column(
+                    children: [
+                      Text('쇼핑', style: TextStyle(fontSize: 20)),
+                      Container(
+                        margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                        height: 2,
+                        width: 50,
+                        color: Colors.orange,
+                      ),
+                    ],
+                  ),
                 ),
-                Column(
-                  children: [
-                    Text('숙박', style: TextStyle(fontSize: 20)),
-                    Container(
-                      margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
-                      height: 2,
-                      width: 50,
-                      color: Colors.orange,
-                    ),
-                  ],
+                GestureDetector(
+                  onTap: (){},
+                  child: Column(
+                    children: [
+                      Text('숙박', style: TextStyle(fontSize: 20)),
+                      Container(
+                        margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                        height: 2,
+                        width: 50,
+                        color: Colors.orange,
+                      ),
+                    ],
+                  ),
                 ),
                 Column(
                   children: [
@@ -67,7 +77,12 @@ class _HomeState extends State<Home> {
                   ],
                 ),
               ],
-            )
+            ),
+            // 상단 카테고리 영역
+            SizedBox(
+              height: 15,
+          ),
+            SearchList(),
           ],
         ),
       ),
