@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jejuinfo/pages/itemDetail.dart';
 import 'dart:convert';
 import 'package:jejuinfo/store/searchListStore.dart';
 import 'package:provider/provider.dart';
@@ -35,26 +36,36 @@ class _SearchListState extends State<SearchList> {
           }
 
           return
-            Container(
-              padding: EdgeInsets.fromLTRB(0, 0, 0, 8),
-              decoration: BoxDecoration(
-                border: Border(
-                  bottom: BorderSide(color: Color.fromRGBO(225, 225, 225, 0.7), width: 0.5),
+            GestureDetector(
+              onTap: (){
+                Navigator.push(context,
+                    PageRouteBuilder(pageBuilder: (c, a1, a2) => ItemDetail(index : i),
+                        transitionsBuilder: (c, a1, a2, child) =>
+                            FadeTransition(opacity: a1, child: child,)
+                    )
+                );
+              },
+              child: Container(
+                padding: EdgeInsets.fromLTRB(0, 0, 0, 8),
+                decoration: BoxDecoration(
+                  border: Border(
+                    bottom: BorderSide(color: Color.fromRGBO(225, 225, 225, 0.7), width: 0.5),
+                  ),
                 ),
-              ),
-              child: ListTile(
-                visualDensity: VisualDensity(vertical: 4),
-                leading: ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: Container(
-                    width: 80,
-                    height: 120,
-                    child: Image.network(context.watch<SearchListStore>().searchList[i]['repPhoto']['photoid']['thumbnailpath'], fit: BoxFit.cover,),
-                  )
-                ),
-                title: Text('${context.watch<SearchListStore>().searchList[i]['title']}'),
-                subtitle: Text(newTag),
+                child: ListTile(
+                  visualDensity: VisualDensity(vertical: 4),
+                  leading: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Container(
+                      width: 80,
+                      height: 120,
+                      child: Image.network(context.watch<SearchListStore>().searchList[i]['repPhoto']['photoid']['thumbnailpath'], fit: BoxFit.cover,),
+                    )
+                  ),
+                  title: Text('${context.watch<SearchListStore>().searchList[i]['title']}'),
+                  subtitle: Text(newTag),
           ),
+              ),
             );
     });
   }

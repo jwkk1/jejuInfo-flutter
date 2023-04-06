@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jejuinfo/widgets/searchList.dart';
+import 'package:jejuinfo/store/searchListStore.dart';
+import 'package:provider/provider.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -9,6 +11,9 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
+  var category = 'c1';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,57 +29,98 @@ class _HomeState extends State<Home> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 GestureDetector(
-                  onTap: (){},
+                  onTap: (){
+                    context.read<SearchListStore>().changeCategory('c1');
+                    setState((){
+                      category = 'c1';
+                    });
+
+                  },
                   child: Column(
                     children: [
-                      Text('관광지', style: TextStyle(fontSize: 20)),
+                      Text('관광지', style: TextStyle(fontSize: 20, color: category == 'c1'
+                          ? Colors.black
+                          : Colors.grey,)),
                       Container(
                         margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
                         height: 2,
                         width: 50,
-                        color: Colors.orange,
+                        color: category == 'c1'
+                            ? Colors.orange
+                            : Color.fromRGBO(255, 255, 255, 0.0),
                       ),
                     ],
                   ),
                 ),
                 GestureDetector(
-                  onTap: (){},
+                  onTap: (){
+                    context.read<SearchListStore>().changeCategory('c2');
+                    setState((){
+                      category = 'c2';
+                    });
+                  },
                   child: Column(
                     children: [
-                      Text('쇼핑', style: TextStyle(fontSize: 20)),
+                      Text('쇼핑', style: TextStyle(fontSize: 20, color: category == 'c2'
+                          ? Colors.black
+                          : Colors.grey,)),
                       Container(
                         margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
                         height: 2,
                         width: 50,
-                        color: Colors.orange,
+                        color: category == 'c2'
+                            ? Colors.orange
+                            : Color.fromRGBO(255, 255, 255, 0.0)
+                        ,
                       ),
                     ],
                   ),
                 ),
                 GestureDetector(
-                  onTap: (){},
+                  onTap: (){
+                    context.read<SearchListStore>().changeCategory('c3');
+                    setState((){
+                      category = 'c3';
+                    });
+                  },
                   child: Column(
                     children: [
-                      Text('숙박', style: TextStyle(fontSize: 20)),
+                      Text('숙박', style: TextStyle(fontSize: 20, color: category == 'c3'
+                          ? Colors.black
+                          : Colors.grey,)),
                       Container(
                         margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
                         height: 2,
                         width: 50,
-                        color: Colors.orange,
+                        color: category == 'c3'
+                            ? Colors.orange
+                            : Color.fromRGBO(255, 255, 255, 0.0),
                       ),
                     ],
                   ),
                 ),
-                Column(
-                  children: [
-                    Text('음식점', style: TextStyle(fontSize: 20)),
-                    Container(
-                      margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
-                      height: 2,
-                      width: 50,
-                      color: Colors.orange,
-                    ),
-                  ],
+                GestureDetector(
+                  onTap: (){
+                    context.read<SearchListStore>().changeCategory('c4');
+                    setState((){
+                      category = 'c4';
+                    });
+                  },
+                  child: Column(
+                    children: [
+                      Text('음식점', style: TextStyle(fontSize: 20, color: category == 'c4'
+                          ? Colors.black
+                          : Colors.grey,)),
+                      Container(
+                        margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                        height: 2,
+                        width: 50,
+                        color: category == 'c4'
+                            ? Colors.orange
+                            : Color.fromRGBO(255, 255, 255, 0.0),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
