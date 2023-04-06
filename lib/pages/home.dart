@@ -17,7 +17,7 @@ class _HomeState extends State<Home> {
         actions: [IconButton(onPressed: (){}, icon: Icon(Icons.my_library_add))],
       ),
       body: Container(
-        padding: EdgeInsets.all(30),
+        padding: EdgeInsets.fromLTRB(5, 30, 5, 5),
         child: Column(
           children: [
             Row(
@@ -82,7 +82,7 @@ class _HomeState extends State<Home> {
             SizedBox(
               height: 15,
           ),
-            SearchList(),
+            Expanded(child: SearchList())
           ],
         ),
       ),

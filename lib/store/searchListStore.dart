@@ -23,6 +23,5 @@ class SearchListStore extends ChangeNotifier {
     }catch(e){
       print(e);
     }
-
   }
 }
