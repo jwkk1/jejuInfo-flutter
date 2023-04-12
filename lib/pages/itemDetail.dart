@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jejuinfo/store/searchListStore.dart';
+import 'package:jejuinfo/widgets/naverMap.dart';
 import 'package:provider/provider.dart';
 
 
@@ -19,7 +20,7 @@ class _ItemDetailState extends State<ItemDetail> {
       appBar: AppBar(
         title: Text('${context.watch<SearchListStore>().searchList[widget.index]['title']}'),
       ),
-      body: Text('a'),
+      body: FNMapPage(),
     );
   }
 }
