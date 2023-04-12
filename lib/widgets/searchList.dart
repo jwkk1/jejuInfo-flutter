@@ -38,12 +38,14 @@ class _SearchListState extends State<SearchList> {
           return
             GestureDetector(
               onTap: (){
+                context.read<SearchListStore>().refreshItem(i);
                 Navigator.push(context,
                     PageRouteBuilder(pageBuilder: (c, a1, a2) => ItemDetail(index : i),
                         transitionsBuilder: (c, a1, a2, child) =>
                             FadeTransition(opacity: a1, child: child,)
                     )
                 );
+
               },
               child: Container(
                 padding: EdgeInsets.fromLTRB(0, 0, 0, 8),

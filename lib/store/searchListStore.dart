@@ -4,12 +4,17 @@ import 'package:provider/provider.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 
-
-
 class SearchListStore extends ChangeNotifier {
   var searchList = [];
+  var detailItem;
   String category = 'c1';
   var dio = Dio();
+
+  refreshItem(index) {
+    detailItem = searchList[index];
+    print(detailItem);
+    notifyListeners();
+  }
 
   changeCategory(cd) {
     category = cd;
@@ -26,6 +31,7 @@ class SearchListStore extends ChangeNotifier {
       if(response.statusCode == 200){
         searchList = response.data['items'];
         notifyListeners();
+        print(searchList);
       }
     }catch(e){
       print(e);

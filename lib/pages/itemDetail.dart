@@ -20,7 +20,19 @@ class _ItemDetailState extends State<ItemDetail> {
       appBar: AppBar(
         title: Text('${context.watch<SearchListStore>().searchList[widget.index]['title']}'),
       ),
-      body: FNMapPage(),
+      body: Column(
+        children: [
+          Container(
+            alignment: Alignment.center,
+            padding: EdgeInsets.fromLTRB(0, 30, 0, 0),
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width,
+              height: 300,
+              child: FNMapPage(),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
