@@ -21,8 +21,8 @@ class _FNMapPageState extends State<FNMapPage> {
   @override
   void initState() {
     super.initState();
-    lat = context.read<SearchListStore>().detailItem['latitude'];
-    long = context.read<SearchListStore>().detailItem['longitude'];
+    lat = context.read<SearchListStore>().detailItem['latitude'] ?? 0;
+    long = context.read<SearchListStore>().detailItem['longitude'] ?? 0;
   }
 
 
